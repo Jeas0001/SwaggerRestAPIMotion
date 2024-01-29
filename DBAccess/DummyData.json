@@ -1,0 +1,235 @@
+﻿{
+    "Person": [
+        {
+            "Id": 1,
+            "FirstName": "John",
+            "LastName": "Doe",
+            "Gender": "Male",
+            "Birthday": "1990-05-15T00:00:00",
+            "Height": 175,
+            "City": {
+                "City": "Silkeborg",
+                "PostAddress": 8600
+            },
+            "Training": [
+                {
+                    "ID": 1,
+                    "TimeStart": "2024-01-29T08:00:00",
+                    "TimeEnd": "2024-01-29T09:30:00",
+                    "PartnerID": [ 2, 3 ],
+                    "GeoLocation": {
+                        "ID": 1,
+                        "Latitude": 37.7749,
+                        "Longitude": -122.4194
+                    },
+                    "Rating": {
+                        "ID": 1,
+                        "RatingOutOfFive": 4.5,
+                        "Comment": "Great session!"
+                    }
+                },
+                {
+                    "ID": 2,
+                    "TimeStart": "2024-01-29T08:00:00",
+                    "TimeEnd": "2024-01-29T09:30:00",
+                    "PartnerID": [ 2, 3 ],
+                    "GeoLocation": {
+                        "ID": 2,
+                        "Latitude": 37.7749,
+                        "Longitude": -122.4194
+                    },
+                    "Rating": {
+                        "ID": 2,
+                        "RatingOutOfFive": 4.5,
+                        "Comment": "Great session!"
+                    }
+                }
+            ],
+            "WeightLoss": {
+                "ID": 1,
+                "StartWeight": 120,
+                "NowWeight": 100,
+                "LastEdited": "1990-05-15T00:00:00"
+            },
+            "User": {
+                "ID": 1,
+                "Username": "johndoe123",
+                "Password": "Password",
+                "IsAdmin": true,
+                "Email": "john.doe@example.com"
+            }
+        },
+        {
+            "Id": 2,
+            "FirstName": "Alice",
+            "LastName": "Smith",
+            "Gender": "Female",
+            "Birthday": "1995-08-22T00:00:00",
+            "Height": 160,
+            "City": {
+                "City": "Copenhagen",
+                "PostAddress": 1000
+            },
+            "Training": [
+                {
+                    "ID": 3,
+                    "TimeStart": "2024-01-30T10:00:00",
+                    "TimeEnd": "2024-01-30T11:30:00",
+                    "PartnerID": [ 4, 5 ],
+                    "GeoLocation": {
+                        "ID": 3,
+                        "Latitude": 55.6761,
+                        "Longitude": 12.5683
+                    },
+                    "Rating": {
+                        "ID": 3,
+                        "RatingOutOfFive": 4.2,
+                        "Comment": "Enjoyable workout!"
+                    }
+                }
+            ],
+            "WeightLoss": {
+                "ID": 2,
+                "StartWeight": 140,
+                "NowWeight": 130,
+                "LastEdited": "1995-08-22T00:00:00"
+            },
+            "User": {
+                "ID": 2,
+                "Username": "alicesmith456",
+                "Password": "SecurePass",
+                "IsAdmin": false,
+                "Email": "alice.smith@example.com"
+            }
+        },
+        {
+            "Id": 3,
+            "FirstName": "Michael",
+            "LastName": "Johnson",
+            "Gender": "Male",
+            "Birthday": "1985-12-10T00:00:00",
+            "Height": 182,
+            "City": {
+                "City": "Aarhus",
+                "PostAddress": 8000
+            },
+            "Training": [
+                {
+                    "ID": 4,
+                    "TimeStart": "2024-01-31T15:30:00",
+                    "TimeEnd": "2024-01-31T17:00:00",
+                    "PartnerID": [ 6, 7 ],
+                    "GeoLocation": {
+                        "ID": 4,
+                        "Latitude": 56.1629,
+                        "Longitude": 10.2039
+                    },
+                    "Rating": {
+                        "ID": 4,
+                        "RatingOutOfFive": 3.8,
+                        "Comment": "Good session, could improve."
+                    }
+                }
+            ],
+            "WeightLoss": {
+                "ID": 3,
+                "StartWeight": 180,
+                "NowWeight": 170,
+                "LastEdited": "1985-12-10T00:00:00"
+            },
+            "User": {
+                "ID": 3,
+                "Username": "michael1985",
+                "Password": "StrongPass123",
+                "IsAdmin": false,
+                "Email": "michael.johnson@example.com"
+            }
+        },
+        {
+            "Id": 4,
+            "FirstName": "Emily",
+            "LastName": "Davis",
+            "Gender": "Female",
+            "Birthday": "1992-04-05T00:00:00",
+            "Height": 165,
+            "City": {
+                "City": "Odense",
+                "PostAddress": 5000
+            },
+            "Training": [
+                {
+                    "ID": 5,
+                    "TimeStart": "2024-02-01T12:00:00",
+                    "TimeEnd": "2024-02-01T13:30:00",
+                    "PartnerID": [ 8, 9 ],
+                    "GeoLocation": {
+                        "ID": 5,
+                        "Latitude": 55.4038,
+                        "Longitude": 10.4024
+                    },
+                    "Rating": {
+                        "ID": 5,
+                        "RatingOutOfFive": 4.0,
+                        "Comment": "Fantastic workout!"
+                    }
+                }
+            ],
+            "WeightLoss": {
+                "ID": 4,
+                "StartWeight": 150,
+                "NowWeight": 140,
+                "LastEdited": "1992-04-05T00:00:00"
+            },
+            "User": {
+                "ID": 4,
+                "Username": "emilydavis92",
+                "Password": "FitLife456",
+                "IsAdmin": false,
+                "Email": "emily.davis@example.com"
+            }
+        },
+        {
+            "Id": 5,
+            "FirstName": "Daniel",
+            "LastName": "Brown",
+            "Gender": "Male",
+            "Birthday": "1988-09-18T00:00:00",
+            "Height": 178,
+            "City": {
+                "City": "Horsens",
+                "PostAddress": 8700
+            },
+            "Training": [
+                {
+                    "ID": 6,
+                    "TimeStart": "2024-02-02T17:00:00",
+                    "TimeEnd": "2024-02-02T18:30:00",
+                    "PartnerID": [ 10, 11 ],
+                    "GeoLocation": {
+                        "ID": 6,
+                        "Latitude": 55.8569,
+                        "Longitude": 9.8908
+                    },
+                    "Rating": {
+                        "ID": 6,
+                        "RatingOutOfFive": 4.2,
+                        "Comment": "Enjoyable workout!"
+                    }
+                }
+            ],
+            "WeightLoss": {
+                "ID": 5,
+                "StartWeight": 160,
+                "NowWeight": 155,
+                "LastEdited": "1988-09-18T00:00:00"
+            },
+            "User": {
+                "ID": 5,
+                "Username": "danielbrown88",
+                "Password": "ActiveDan789",
+                "IsAdmin": false,
+                "Email": "daniel.brown@example.com"
+            }
+        }
+    ]
+}
