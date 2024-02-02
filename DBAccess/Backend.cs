@@ -43,17 +43,36 @@ namespace DBAccess
             }
         }
 
+        public bool EditPerson(int id, Person person)
+        {
+            try
+            {
+                foreach (Person people1 in people)
+                {
+                    if (people1.ID == id)
+                    {
+                        people[people.IndexOf(people1)] = person;
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+        }
+
         public bool DeletePerson(int id)
         {
             try
             {
-                int index;
                 foreach (Person person in people)
                 {
                     if (person.ID == id)
                     {
-                        index = people.IndexOf(person);
-                        people.RemoveAt(index);
+                        people.RemoveAt(people.IndexOf(person));
                         return true;
                     }
                 }
