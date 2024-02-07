@@ -1,13 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BLogic;
 using Models;
+using Test.Tests;
 
-Console.WriteLine("Hello, World!");
-BusinessLogic businessLogic = new BusinessLogic();
-List<Person> people = businessLogic.GetPeople();
 
-foreach (Person person in people)
-{
-    Console.WriteLine(person.FirstName);
-}
-Console.ReadLine();
+Console.WriteLine("Running Tests");
+
+BLTests.BusinessLogicGetPeopleReturnListOfPeople();
+BLTests.BusinessLogicGetPersonReturnPerson();
+BLTests.BusinessLogicAddPersonReturnBoleanTrue();
+BLTests.BusinessLogicDeletePersonReturnBoleanTrue();
+BLTests.BusinessLogicUpdatePersonReturnBoleanTrue();
