@@ -117,28 +117,28 @@ namespace DBAccess
                     PostAddress = 8600
                 },
                 Training = new List<Training>
-            {
-                new Training
                 {
-                    ID = 1,
-                    TimeStart = DateTime.Parse("2024-01-29T08:00:00"),
-                    TimeEnd = DateTime.Parse("2024-01-29T09:30:00"),
-                    PartnerID = new List<int> { 2, 3 },
-                    GeoLocation = new GeoLocation
+                    new Training
                     {
                         ID = 1,
-                        Latitude = 37.7749,
-                        Longitude = -122.4194
+                        TimeStart = DateTime.Parse("2024-01-29T08:00:00"),
+                        TimeEnd = DateTime.Parse("2024-01-29T09:30:00"),
+                        PartnerID = new List<int> { 2, 3 },
+                        GeoLocation = new GeoLocation
+                        {
+                            ID = 1,
+                            Latitude = 37.7749,
+                            Longitude = -122.4194
+                        },
+                        Rating = new Rating
+                        {
+                            ID = 1,
+                            RatingOutOfFive = 4.5,
+                            Comment = "Great session!"
+                        }
                     },
-                    Rating = new Rating
-                    {
-                        ID = 1,
-                        RatingOutOfFive = 4.5,
-                        Comment = "Great session!"
-                    }
+                    // Add more training sessions as needed
                 },
-                // Add more training sessions as needed
-            },
                 WeightLoss = new WeightLoss
                 {
                     ID = 1,
@@ -150,7 +150,8 @@ namespace DBAccess
                 {
                     ID = 1,
                     UserName = "johndoe123",
-                    Password = "Password",
+                    Password = "b1996741837a238b3f7dbc6270ed4ceedde524377ca1125da665ca5f1f0543ee",
+                    Salt = "8cbbe2b5af436afb56d66e0fb734112f",
                     IsAdmin = true,
                     Email = "john.doe@example.com"
                 }
@@ -207,7 +208,8 @@ namespace DBAccess
                 {
                     ID = 2,
                     UserName = "alicesmith456",
-                    Password = "SecurePass",
+                    Password = "e2f10c7332eccb17268c3f62e6bffaa17554bf156ca9b520f0f6619d0c7705f9",
+                    Salt = "5ee546063bcb6b5c638025141e6f0e3f",
                     IsAdmin = false,
                     Email = "alice.smith@example.com"
                 }
@@ -264,7 +266,8 @@ namespace DBAccess
                 {
                     ID = 3,
                     UserName = "michael1985",
-                    Password = "StrongPass123",
+                    Password = "2db9b4fc3455609862c6690b500e8b1d0d394f0fec4106898cefaf7a653a59cc",
+                    Salt = "a8243aabf75f4d136be073ba4540051f",
                     IsAdmin = false,
                     Email = "michael.johnson@example.com"
                 }
@@ -321,7 +324,8 @@ namespace DBAccess
                 {
                     ID = 4,
                     UserName = "emilydavis92",
-                    Password = "FitLife456",
+                    Password = "fdd4fefe371a627ef834cca6526b43fcfd23901471a59d31404df5d20c2f437c",
+                    Salt = "3a968d106202f42db9b14688e1811db6",
                     IsAdmin = false,
                     Email = "emily.davis@example.com"
                 }
@@ -378,7 +382,8 @@ namespace DBAccess
                 {
                     ID = 5,
                     UserName = "danielbrown88",
-                    Password = "ActiveDan789",
+                    Password = "3d0f98863161e359e5c711f63f6ca6d6b9261897d497b3850c6fdd3f697b6b91",
+                    Salt = "a6622a7a8cac84445be291dfad8a765d",
                     IsAdmin = false,
                     Email = "daniel.brown@example.com"
                 }

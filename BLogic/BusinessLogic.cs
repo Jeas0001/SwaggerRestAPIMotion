@@ -1,5 +1,7 @@
 ﻿using DBAccess;
 using Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BLogic
 {
@@ -36,5 +38,51 @@ namespace BLogic
         {
             return Backend.EditPerson(id, person);
         }
+
+        public static string HashPassword(string password)
+        {
+            // Generate a random salt
+            byte[] salt = GenerateSalt();
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                // Combine the password and salt
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                byte[] saltedPassword = new byte[passwordBytes.Length + salt.Length];
+                Buffer.BlockCopy(passwordBytes, 0, saltedPassword, 0, passwordBytes.Length);
+                Buffer.BlockCopy(salt, 0, saltedPassword, passwordBytes.Length, salt.Length);
+
+                // Compute the hash value
+                byte[] hashBytes = sha256.ComputeHash(saltedPassword);
+
+                // Convert the byte array to a hexadecimal string
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+
+                // Append the salt to the hashed password (for storage)
+                sb.Append(":");
+                foreach (byte s in salt)
+                {
+                    sb.Append(s.ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        static byte[] GenerateSalt()
+        {
+            // Generate a random salt using a cryptographic random number generator
+            byte[] salt = new byte[16];
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+            return salt;
+        }
     }
+
 }
