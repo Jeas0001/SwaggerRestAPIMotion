@@ -69,6 +69,35 @@ namespace BLogic
             }
         }
 
+        public static string VerifyPassword(string password, string salt)
+        {
+
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                byte[] saltBytes = Encoding.UTF8.GetBytes(salt);
+                byte[] saltedPassword = new byte[passwordBytes.Length + saltBytes.Length];
+                Buffer.BlockCopy(passwordBytes, 0, saltedPassword, 0, passwordBytes.Length);
+                Buffer.BlockCopy(saltBytes, 0, saltedPassword, passwordBytes.Length, saltBytes.Length);
+
+                byte[] hashBytes = sha256.ComputeHash(saltedPassword);
+
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+
+                sb.Append(":");
+                foreach (byte s in saltBytes)
+                {
+                    sb.Append(s.ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
+
         static byte[] GenerateSalt()
         {
             // Generate a random salt using a cryptographic random number generator

@@ -14,12 +14,3 @@ using Test.Tests;
 
 Console.WriteLine("1");
 Console.WriteLine(BusinessLogic.HashPassword("Password"));
-Console.WriteLine("2");
-Console.WriteLine(BusinessLogic.HashPassword("Password"));
-Console.WriteLine("3");
-Console.WriteLine(BusinessLogic.HashPassword("Password"));
-Console.WriteLine("4");
-Console.WriteLine(BusinessLogic.HashPassword("Password"));
-Console.WriteLine("5");
-Console.WriteLine(BusinessLogic.HashPassword("Password"));
-Console.ReadLine();
