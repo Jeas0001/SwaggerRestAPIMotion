@@ -75,7 +75,8 @@ namespace BLogic
             using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-                byte[] saltBytes = Encoding.UTF8.GetBytes(salt);
+                byte[] saltBytes = StringToByteArray(salt);
+
                 byte[] saltedPassword = new byte[passwordBytes.Length + saltBytes.Length];
                 Buffer.BlockCopy(passwordBytes, 0, saltedPassword, 0, passwordBytes.Length);
                 Buffer.BlockCopy(saltBytes, 0, saltedPassword, passwordBytes.Length, saltBytes.Length);
@@ -96,6 +97,17 @@ namespace BLogic
 
                 return sb.ToString();
             }
+        }
+
+        static byte[] StringToByteArray(string hex)
+        {
+            int numberChars = hex.Length;
+            byte[] bytes = new byte[numberChars / 2];
+            for (int i = 0; i < numberChars; i += 2)
+            {
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            }
+            return bytes;
         }
 
         static byte[] GenerateSalt()
