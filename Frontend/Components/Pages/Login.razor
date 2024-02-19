@@ -3,8 +3,16 @@
 
 
 <h1>Login side </h1>
-<div class="Form"></div>
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+     private int currentCount = 0;
 
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
 }
+
