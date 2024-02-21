@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SwaggerRestAPIMotion.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
+    //[ApiController]
+    //[Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

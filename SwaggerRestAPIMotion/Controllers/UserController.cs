@@ -6,10 +6,12 @@ using System;
 
 namespace SwaggerRestAPIMotion.Controllers
 {
+    [ApiController]
+    [Route("api/User/[controller]")]
     public class UserController : Controller
     {
         BusinessLogic businessLogic;
-        public UserController() 
+        public UserController()
         {
             BusinessLogic businessLogic = new BusinessLogic();
         }

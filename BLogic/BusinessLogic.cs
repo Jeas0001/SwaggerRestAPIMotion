@@ -39,6 +39,46 @@ namespace BLogic
             return Backend.EditPerson(id, person);
         }
 
+        public List<User> GetUsers()
+        {
+            var people = Backend.GetPeople();
+            var users = new List<User>();
+            foreach (var person in people)
+            {
+                users.Add(person.User);
+            }
+            return users;
+        }
+
+        public User GetUser(string username)
+        {
+            var users = GetUsers();
+            foreach (var user in users)
+            {
+                if (user.UserName == username)
+                {
+                    return user;
+                }
+            }
+            return new User();
+        }
+
+        public bool Login(string username, string password)
+        {
+            var user = GetUser(username);
+            if (user.UserName == null)
+            {
+                return false;
+            }
+            string verify = VerifyPassword(password, user.Salt);
+            var saltedPassword = verify.Split(':');
+            if (saltedPassword[0] == user.Password)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static string HashPassword(string password)
         {
             // Generate a random salt

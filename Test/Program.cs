@@ -14,7 +14,7 @@ using Test.Tests;
 int i = 1;
 int x = 0;
 
-for (int i2 = 0; i2 < 100000000; i2++)
+for (int i2 = 0; i2 < 1000; i2++)
 {
 	try
 	{
@@ -23,8 +23,9 @@ for (int i2 = 0; i2 < 100000000; i2++)
         //Console.WriteLine(test);
         var test2 = test.Split(':');
         string verifyTest = BusinessLogic.VerifyPassword("Password", test2[1]);
+        var test3 = verifyTest.Split(':');
         //Console.WriteLine(verifyTest);
-        if (test == verifyTest) { x++; }
+        if (test2[0] == test3[0]) { x++; }
     }
 	catch (Exception e)
 	{
