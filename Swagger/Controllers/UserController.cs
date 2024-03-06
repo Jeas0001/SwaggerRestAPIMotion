@@ -29,7 +29,7 @@ namespace Swagger.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public IActionResult Edit([FromBody] Person person, int id)
         {
             bool success = businessLogic.UpdatePerson(id, person);
@@ -37,7 +37,7 @@ namespace Swagger.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             try
