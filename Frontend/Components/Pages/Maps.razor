@@ -1,6 +1,37 @@
-﻿@page "/maps"
+﻿<head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJmyBiuj7t3iyItJQ7q-AQFWe1geDGYYw&callback=initMap" async defer></script>
+</head>
+
+@page "/maps"
+@using Microsoft.JSInterop
 <h3>Maps</h3>
 <p> This page is under constrution...</p>
-@code {
+<div id="map" style="height: 400px"></div>
 
+@code {
+    protected IJSRuntime JSRuntime { get; set; }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initMap");
+        }
+    }
 }
+
+<script>
+    var map;
+
+    function initMap() {
+        // Specify the initial center and zoom level of the map
+        var mapOptions = {
+            center: { lat: 37.7749, lng: -122.4194 }, // San Francisco coordinates
+            zoom: 12,
+        };
+
+        // Create the map and assign it to the "map" variable
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        // You can add more customization or markers here
+    }
+</script>
