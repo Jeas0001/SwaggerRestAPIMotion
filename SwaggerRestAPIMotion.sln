@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerRestAPIMotion", "SwaggerRestAPIMotion\SwaggerRestAPIMotion.csproj", "{5AD46A8F-B728-4571-8F89-053E6F430ECC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{5F496C4D-07E6-4C5E-850C-C7C10F4B7321}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLogic", "BLogic\BLogic.csproj", "{41463D75-10DA-424D-AA38-38775A795D17}"
@@ -15,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frontend", "Frontend\Frontend.csproj", "{130EADB9-4085-46E9-893A-54D317A0BFF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerRestAPIMotionsApp", "SwaggerRestAPIMotionsApp\SwaggerRestAPIMotionsApp.csproj", "{440469C9-04E6-423D-8BA3-627CFAF539DA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger", "Swagger\Swagger.csproj", "{F47A01C7-0E72-4EB0-9E62-A70B1B38E90F}"
 EndProject
 Global
@@ -25,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5AD46A8F-B728-4571-8F89-053E6F430ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5AD46A8F-B728-4571-8F89-053E6F430ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5AD46A8F-B728-4571-8F89-053E6F430ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5AD46A8F-B728-4571-8F89-053E6F430ECC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F496C4D-07E6-4C5E-850C-C7C10F4B7321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F496C4D-07E6-4C5E-850C-C7C10F4B7321}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F496C4D-07E6-4C5E-850C-C7C10F4B7321}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,10 +41,6 @@ Global
 		{130EADB9-4085-46E9-893A-54D317A0BFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{130EADB9-4085-46E9-893A-54D317A0BFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{130EADB9-4085-46E9-893A-54D317A0BFF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{440469C9-04E6-423D-8BA3-627CFAF539DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{440469C9-04E6-423D-8BA3-627CFAF539DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{440469C9-04E6-423D-8BA3-627CFAF539DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{440469C9-04E6-423D-8BA3-627CFAF539DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F47A01C7-0E72-4EB0-9E62-A70B1B38E90F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F47A01C7-0E72-4EB0-9E62-A70B1B38E90F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F47A01C7-0E72-4EB0-9E62-A70B1B38E90F}.Release|Any CPU.ActiveCfg = Release|Any CPU
