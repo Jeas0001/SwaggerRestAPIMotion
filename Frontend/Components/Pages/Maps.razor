@@ -3,6 +3,8 @@
 </head>
 
 @page "/maps"
+@inject NavigationManager uriHelper;
+@using System.Threading;
 @using Microsoft.JSInterop
 <h3>Maps</h3>
 <p> This page is under constrution...</p>
@@ -15,6 +17,10 @@
         if (firstRender)
         {
             await JSRuntime.InvokeVoidAsync("initMap");
+            var timer = new Timer(new TimerCallback(_ =>
+            {
+                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            }), null, 2000, 2000);
         }
     }
 }
