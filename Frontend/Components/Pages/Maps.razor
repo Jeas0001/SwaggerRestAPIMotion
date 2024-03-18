@@ -9,19 +9,39 @@
 <h3>Maps</h3>
 <p> This page is under constrution...</p>
 <div id="map" style="height: 400px"></div>
+<button @onclick="GetCurrentLocation">Get Current Location</button>
 
 @code {
+    [Inject]
     protected IJSRuntime JSRuntime { get; set; }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JSRuntime.InvokeVoidAsync("initMap");
-            var timer = new Timer(new TimerCallback(_ =>
-            {
-                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
-            }), null, 2000, 2000);
         }
+    }
+    private async Task GetCurrentLocation()
+    {
+        if (await JSRuntime.InvokeAsync<bool>("navigator.geolocation"))
+        {
+            await JSRuntime.InvokeVoidAsync("getCurrentLocation", DotNetObjectReference.Create(this));
+        }
+        else
+        {
+            // Handle the case where geolocation is not supported or denied by the user
+            // You can show an error message or provide an alternative method.
+            Console.WriteLine("Geolocation is not supported or denied by the user.");
+        }
+    }
+
+    [JSInvokable]
+    public async Task HandleLocation(double latitude, double longitude)
+    {
+        // Handle the received location (e.g., update the map with a marker)
+        var location = new { lat = latitude, lng = longitude };
+        await JSRuntime.InvokeVoidAsync("updateMapWithCurrentLocation", location);
     }
 }
 
@@ -40,5 +60,30 @@
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         // You can add more customization or markers here
+    }
+
+    function getCurrentLocation(dotnetReference) {
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                // Invoke the .NET method with the obtained coordinates
+                dotnetReference.invokeMethodAsync('HandleLocation', position.coords.latitude, position.coords.longitude);
+                console.log('it works');
+            },
+            function (error) {
+                console.error('Error getting current location:', error.message);
+            }
+        );
+    }
+
+    function updateMapWithCurrentLocation(location) {
+        // Update the map with a marker at the current location
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: 'Current Location'
+        });
+
+        // Center the map on the current location
+        map.setCenter(location);
     }
 </script>
