@@ -1,11 +1,49 @@
 ﻿@page "/userProfile"
-<h3>Profil</h3>
-<p> This page is under constrution...</p>
-<form>
-    <label for="userId">søg på brugernavn </label>
-    <input type="text" id="userId" name="UserID"><br><br>
-    <button>Søg</button>
-</form>
-@code {
 
+@* @* her giver jeg adgang til at foretage http anmodninger *@
+@inject HttpClient HttpClient
+
+@*Her forsøger jeg at kalde Person.cs der er placeret i mappen 'Models'*@
+@using Person.Models
+ 
+<h3>Profil</h3>
+<p>This page is under construction...</p>
+@*her laver jeg textfelt, med input og knap til hente bruger funktionen*@
+<label for="UserId">Søg på brugerid</label>
+<input type="number" @bind="userId"/>
+<br />
+<br />
+<button @onclick="GetPerson">Søg</button>
+
+@* @*her laver jeg en if statment der skulle gører at hvis det intastede brugernavn Eksistere
+ så skal den udskrive navn, efternavn, køn og by på siden*@
+@if (person != null)
+{
+    <div>
+        <h2>Brugeroplysninger</h2>
+        <p><strong>Fornavn:</strong> @person.FirstName</p>
+        <p><strong>Efternavn:</strong> @person.LastName</p>
+        <p><strong>Køn:</strong> @person.Gender</p>
+        <p><strong>By:</strong> @person.City</p>
+    </div>
+}
+ 
+
+ @code {
+    private int userId; // Deklarer userId variablen her
+    private Person person;
+
+    @*GetPerson metoden bruges til at foretage Http anmodning til URL'en*@
+    private async Task GetPerson()
+    {
+        var response = await HttpClient.GetAsync($"https://localhost:7160/api/User/User?id={userId}");
+        if (response.IsSuccessStatusCode)
+        {
+            person = await response.Content.ReadFromJsonAsync<Person>();
+        }
+        else
+        {
+            // Håndter fejlrespons her
+        }
+    }
 }
