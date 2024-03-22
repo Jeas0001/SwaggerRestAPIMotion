@@ -11,7 +11,21 @@ namespace Swagger.Controllers
         BusinessLogic businessLogic;
         public UserController()
         {
+            
+        }
+
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
             BusinessLogic businessLogic = new BusinessLogic();
+            try
+            {
+                return Ok(businessLogic.GetPerson(id));
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost]
