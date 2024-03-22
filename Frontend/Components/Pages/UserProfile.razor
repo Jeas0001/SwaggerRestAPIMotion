@@ -1,11 +1,36 @@
 ﻿@page "/userProfile"
+@* @* her prøver jeg at kalde funktionen 'GetPerson' fra UserController.cs *@
+@* @inject HttpGet get
+ *@ 
 <h3>Profil</h3>
-<p> This page is under constrution...</p>
-<form>
-    <label for="userId">søg på brugernavn </label>
-    <input type="text" id="userId" name="UserID"><br><br>
-    <button>Søg</button>
-</form>
-@code {
+<p>This page is under construction...</p>
+@*her laver jeg textfelt, med input og knap til hente bruger funktionen*@
+<label for="UserId">Søg på brugerid</label>
+@* <input type="number" @bind="Id"/> *@
+<br />
+<br />
+<button@*  @onclick="GetPerson" *@>Søg</button>
 
+@* @*her laver jeg en if statment der skulle gører at hvis det intastede brugernavn passer, så skal den udskrive navn, efternavn, køn og by på siden*@
+@* @if (user != null)
+{
+    <div>
+        <h2>Brugeroplysninger</h2>
+        <p><strong>Navn:</strong> @user.FirstName</p>
+        <p><strong>Navn:</strong> @user.LastName</p>
+        <p><strong>E-mail:</strong> @user.Gender</p>
+        <p><strong>E-mail:</strong> @user.City</p>
+    </div>
 }
+ *@ 
+
+@* @code {
+    private string UserId; 
+    private Person user; 
+
+    private async Task GetPerson()
+    {
+        // Find brugeren baseret på brugerId 
+        user = await UserService.GetPersonByUserId(UserId);
+    }
+} *@
